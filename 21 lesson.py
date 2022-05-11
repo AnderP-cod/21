@@ -54,11 +54,15 @@ class Techer(Worker,Student):
     def __init__(self,ferst,last):
         super().__init__(ferst,last)
 
+    def __str__(self,ferst,last):
+        return f"full name {self.ferst} {self.last}"
+
     @property
     def techerrrr(self):
         a = Student.studentt()
         b = Worker.workerr()
         return f"Worker = {a} , Student = {b}"
+
     @property
     def teacherr(self):
         return f"Techer {self.ferst} {self.last}"
