@@ -9,6 +9,7 @@ Adult - Worker - Teacher
 Teacher працює з студентами
 
 2 Переглянути magic methods, реалузувати для своїх класів"""
+import random
 
 
 class Human:
@@ -33,63 +34,75 @@ class Adult(Human):
 class Student(Adult):
     def __init__(self,ferst,last):
         super().__init__(ferst,last)
-    @staticmethod
-    def studentt():
-        Job = input("Напишите где вы студент работаете: ")
-        pay = int(input("Напишите какая у вас зарплта: "))
-        return f"работа {Job}, зарплата {pay}"
+
+    @property
+    def studen(self):
+        return f"Student {self.ferst} {self.last}"
 
 
 class Worker(Adult):
     def __init__(self,ferst,last):
         super().__init__(ferst,last)
-    @staticmethod
-    def workerr():
-        Job = input("Напишите где вы работаете: ")
-        pay2 = int(input("Напишите какая у вас зарплта: "))
-        return f"работа {Job} , зарплата {pay2}"
 
 
 class Techer(Worker,Student):
     def __init__(self,ferst,last):
         super().__init__(ferst,last)
 
-    def __str__(self,ferst,last):
-        return f"full name {self.ferst} {self.last}"
-
-    @property
-    def techerrrr(self):
-        a = Student.studentt()
-        b = Worker.workerr()
-        return f"Worker = {a} , Student = {b}"
-
     @property
     def teacherr(self):
         return f"Techer {self.ferst} {self.last}"
 
-    @teacherr.setter
-    def teacherr(self,name):
-        ferst,last = name.split()
-        self.ferst = ferst
-        self.last = last
+    @property
+    def studen(self):
+        return f"Student {self.ferst} {self.last}"
 
-    @teacherr.deleter
-    def teacherr(self):
+    @property
+    def techerrrr(self):
+        print("Ваши студент")
+        print(student.studen)
+        print(student2.studen)
+        return student3.studen
+
+    @studen.deleter
+    def studen(self):
         print("Удалены данные")
         self.ferst = None
         self.last = None
 
+techer = Techer("Андрей","Паламарчук")
+student = Student("Андрей","Линник")
+student2 = Student("Юрa","Москоленко")
+student3 = Student("Влад","Чуприна")
 
 
-chldren = Techer("Андрей","Паламарчук")
+print(techer.teacherr)
+print(techer.techerrrr)
 
-print(chldren.teacherr)
-print()
-chldren.teacherr = 'Андрей Линник'
-print(chldren.teacherr)
-print()
-del chldren.teacherr
-print(chldren.ferst)
-print(chldren.last)
 
-print(chldren.techerrrr)
+def techer5():
+    item = int(input("Выберите что вы хотите сделать 1) добавить студента 2) удалить студента: "))
+    if item == 1:
+        student4 = Student(input("Ведите имя студента: "), input("Ведите фамилию студента: "))
+        return student4.studen
+    elif item == 2:
+        print("Кого вы хотите удалить")
+        item2 = int(input("1) Андрей Линник , 2)Юрa Москоленко , 3)Влад Чуприна : "))
+        if item2 == 1:
+            del student.studen
+            print(student.ferst)
+            print(student.last)
+        elif item2 == 2:
+            del student2.studen
+            print(student2.ferst)
+            print(student2.last)
+        elif item2 == 3:
+            del student3.studen
+            print(student3.ferst)
+            print(student3.last)
+        else:
+            print("Ошибка")
+    else:
+        print("Ошибка")
+
+print(techer5())
