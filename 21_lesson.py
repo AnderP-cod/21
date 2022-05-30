@@ -57,12 +57,14 @@ class Worker(Adult):
 
 # главная функция которая манипулирует всеми
 class Techer(Worker, Student):
-    def __init__(self, ferst, last):
+    def __init__(self, ferst, last, lst):
         super().__init__(ferst, last)
+        self.lst = [student.studen, student2.studen, student3.studen]  # передача студентов
 
     @property
-    def teacherr(self):  # эта функция возрошяет Techer
-        return f"Techer {self.ferst} {self.last}"
+    def class_techer(self):  # эта функция возрошяет Techer
+        return f"Techer {self.ferst} {self.last} {self.lst}"
+
 
     @property
     def techerrrr(self):  # эта функция показывает всех студентов учителя
@@ -74,13 +76,13 @@ class Techer(Worker, Student):
         return
 
 
-techer2 = Techer("Андрей", "Паламарчук")
 student = Student("Андрей", "Линник")
 student2 = Student("Юрa", "Москоленко")
 student3 = Student("Влад", "Чуприна")
 studentt = Student("", "")
+techer2 = Techer("Андрей", "Паламарчук", [student, student2, student3])
 
-print(techer2.teacherr)
+print(techer2.class_techer)
 print(techer2.techerrrr)
 print(studentt.__add__())
 print(techer2.techerrrr)
